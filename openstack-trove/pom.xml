@@ -22,13 +22,13 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.6.2-incubating</version>
+    <version>1.6.2-SNAPSHOT</version>
   </parent>
 
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-trove</artifactId>
-  <version>1.6.2-incubating</version>
+  <version>1.6.2-SNAPSHOT</version>
   <name>jclouds openstack-trove api</name>
   <description>jclouds components to access an implementation of OpenStack Trove</description>
   <packaging>bundle</packaging>
@@ -56,31 +56,31 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.6.2-incubating</version>
+      <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.6.2-incubating</version>
+      <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.6.2-incubating</version>
+      <version>${project.parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.6.2-incubating</version>
+      <version>${project.parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>1.6.2-incubating</version>
+      <version>${project.parent.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -126,8 +126,4 @@
     </profile>
   </profiles>
 
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.6.2-incubating-rc0</tag>
-  </scm>
 </project>
