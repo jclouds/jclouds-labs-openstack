@@ -29,7 +29,7 @@
   
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-clouddatabases-us</artifactId>
-  <version>1.6.3-SNAPSHOT</version>
+  <version>1.6.3</version>
   <name>jclouds Rackspace Cloud Databases US provider</name>
   <description>OpenStack Trove implementation targeted to Rackspace Cloud Databases US</description>
   <packaging>bundle</packaging>

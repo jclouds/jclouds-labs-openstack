@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-quantum</artifactId>
-  <version>1.6.3-SNAPSHOT</version>
+  <version>1.6.3</version>
   <name>jclouds openstack-quantum api</name>
   <description>jclouds components to access an implementation of OpenStack Quantum</description>
   <packaging>bundle</packaging>
