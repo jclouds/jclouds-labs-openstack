@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.6.3-SNAPSHOT</version>
+    <version>1.6.3</version>
   </parent>
   
   <groupId>org.apache.jclouds.labs</groupId>
@@ -38,6 +38,10 @@
     <url>https://git-wip-us.apache.org/repos/asf?p=incubator-jclouds-labs-openstack.git</url>
     <tag>HEAD</tag>
   </scm>
+
+  <properties>
+    <jclouds.version>1.6.3</jclouds.version>
+  </properties>
 
   <repositories>
     <repository>
