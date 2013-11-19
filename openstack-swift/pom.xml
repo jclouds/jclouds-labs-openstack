@@ -44,11 +44,11 @@
     <jclouds.blobstore.httpstream.url>FIXME_HTTPURL</jclouds.blobstore.httpstream.url>
     <jclouds.blobstore.httpstream.md5>FIXME_HTTPMD5</jclouds.blobstore.httpstream.md5>
 
-    <jclouds.osgi.export>org.jclouds.openstack.swift.v1*;version="${project.version}"</jclouds.osgi.export>
+    <jclouds.osgi.export>org.jclouds.openstack.swift.v1*;version="${project.parent.version}"</jclouds.osgi.export>
     <jclouds.osgi.import>
       org.jclouds.blobstore.internal;version="${jclouds.version}",
       org.jclouds.rest.internal;version="${jclouds.version}",
-      org.jclouds.labs*;version="${project.version}",
+      org.jclouds.labs*;version="${project.parent.version}",
       org.jclouds*;version="${jclouds.version}",
       *
     </jclouds.osgi.import>
@@ -58,38 +58,38 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-blobstore</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-blobstore</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>1.6.3-SNAPSHOT</version>
+      <version>${project.parent.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

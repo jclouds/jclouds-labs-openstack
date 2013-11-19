@@ -43,10 +43,10 @@
     <test.rackspace-autoscale.credential>FIXME_CREDENTIALS</test.rackspace-autoscale.credential>
     <test.jclouds.keystone.credential-type>passwordCredentials</test.jclouds.keystone.credential-type>
 
-    <jclouds.osgi.export>org.jclouds.rackspace.autoscale.v1_0*;version="${project.version}"</jclouds.osgi.export>
+    <jclouds.osgi.export>org.jclouds.rackspace.autoscale.v1_0*;version="${project.parent.version}"</jclouds.osgi.export>
     <jclouds.osgi.import>
       org.jclouds.rest.internal;version="${jclouds.version}",
-      org.jclouds.labs*;version="${project.version}",
+      org.jclouds.labs*;version="${project.parent.version}",
       org.jclouds*;version="${jclouds.version}",
       *
     </jclouds.osgi.import>
