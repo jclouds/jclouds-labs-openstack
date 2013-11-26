@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-swift</artifactId>
-  <version>1.6.3-SNAPSHOT</version>
+  <version>1.6.3</version>
   <name>jclouds openstack-swift api</name>
   <description>jclouds components to access an implementation of OpenStack Swift</description>
   <packaging>bundle</packaging>
@@ -133,4 +133,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.6.3-rc2</tag>
+  </scm>
 </project>
