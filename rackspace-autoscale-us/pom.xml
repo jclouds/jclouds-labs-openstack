@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-autoscale-us</artifactId>
-  <version>1.6.3</version>
+  <version>1.6.4-SNAPSHOT</version>
   <name>jclouds rackspace-autoscale api provider</name>
   <description>jclouds components to access Rackspace Autoscale</description>
   <packaging>bundle</packaging>
@@ -141,9 +141,4 @@
       </build>
     </profile>
   </profiles>
-
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.6.3-rc2</tag>
-  </scm>
 </project>
