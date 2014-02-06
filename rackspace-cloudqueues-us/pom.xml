@@ -22,14 +22,14 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.7.1</version>
   </parent>
   
   <!-- TODO: when out of labs, switch to org.jclouds.provider; update dependencies when Marconi is moved to jclouds -->
   
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-cloudqueues-us</artifactId>
-  <version>1.7.1-SNAPSHOT</version>
+  <version>1.7.1</version>
   <name>jclouds Rackspace Cloud Queues US provider</name>
   <description>OpenStack Marconi implementation targeted to Rackspace Cloud Queues US</description>
   <packaging>bundle</packaging>
@@ -67,7 +67,7 @@
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.labs</groupId>
@@ -77,17 +77,17 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>rackspace-cloudidentity</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
@@ -101,21 +101,21 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>rackspace-cloudidentity</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -160,4 +160,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.7.1-rc1</tag>
+  </scm>
 </project>

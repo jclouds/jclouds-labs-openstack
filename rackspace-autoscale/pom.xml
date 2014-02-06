@@ -22,13 +22,13 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.7.1</version>
   </parent>
 
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-autoscale</artifactId>
-  <version>1.7.1-SNAPSHOT</version>
+  <version>1.7.1</version>
   <name>jclouds rackspace-autoscale api</name>
   <description>jclouds components to access Rackspace Autoscale</description>
   <packaging>bundle</packaging>
@@ -69,31 +69,31 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>${project.parent.version}</version>
+      <version>1.7.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -104,7 +104,7 @@
     <dependency>
     	<groupId>org.apache.jclouds.api</groupId>
     	<artifactId>rackspace-cloudidentity</artifactId>
-    	<version>${project.parent.version}</version>
+    	<version>1.7.1</version>
     </dependency>
     <dependency>
       <groupId>com.squareup.okhttp</groupId>
@@ -148,4 +148,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.7.1-rc1</tag>
+  </scm>
 </project>
