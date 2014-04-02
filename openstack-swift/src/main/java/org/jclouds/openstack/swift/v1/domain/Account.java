@@ -29,9 +29,11 @@ import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableMap;
 
 /**
- * @see <a
- *      href="http://docs.openstack.org/api/openstack-object-storage/1.0/content/retrieve-account-metadata.html">api
- *      doc</a>
+ * Represents an Account in OpenStack Object Storage.
+ * 
+ * @author Jeremy Daggett
+ * 
+ * @see AccountApi
  */
 public class Account {
 
@@ -48,27 +50,42 @@ public class Account {
       this.metadata = checkNotNull(metadata, "metadata");
    }
 
-   public long containerCount() {
+   /**
+    * @return The count of containers for this account.
+    */
+   public long getContainerCount() {
       return containerCount;
    }
 
-   public long objectCount() {
+   /**
+    * @return The count of objects for this account.
+    */
+   public long getObjectCount() {
       return objectCount;
    }
 
-   public long bytesUsed() {
+   /**
+    * @return The number of bytes used by this account.
+    */
+   public long getBytesUsed() {
       return bytesUsed;
    }
 
-   public Optional<String> temporaryUrlKey() {
+   /**
+    * @return The {@link Optional&lt;String&gt;} temporary URL key for this account.
+    */
+   public Optional<String> getTemporaryUrlKey() {
       return Optional.fromNullable(metadata.get("temp-url-key"));
    }
 
    /**
+    * <h3>NOTE</h3>
     * In current swift implementations, headers keys are lower-cased. This means
     * characters such as turkish will probably not work out well.
+    *
+    * @return a {@code Map<String, String>} containing the account metadata.
     */
-   public Map<String, String> metadata() {
+   public Map<String, String> getMetadata() {
       return metadata;
    }
 
@@ -79,10 +96,10 @@ public class Account {
       }
       if (object instanceof Account) {
          Account that = Account.class.cast(object);
-         return equal(containerCount(), that.containerCount()) //
-               && equal(objectCount(), that.objectCount()) //
-               && equal(bytesUsed(), that.bytesUsed()) //
-               && equal(metadata(), that.metadata());
+         return equal(getContainerCount(), that.getContainerCount())
+               && equal(getObjectCount(), that.getObjectCount())
+               && equal(getBytesUsed(), that.getBytesUsed())
+               && equal(getMetadata(), that.getMetadata());
       } else {
          return false;
       }
@@ -90,7 +107,7 @@ public class Account {
 
    @Override
    public int hashCode() {
-      return Objects.hashCode(containerCount(), objectCount(), bytesUsed());
+      return Objects.hashCode(getContainerCount(), getObjectCount(), getBytesUsed(), getMetadata());
    }
 
    @Override
@@ -99,11 +116,11 @@ public class Account {
    }
 
    protected ToStringHelper string() {
-      return toStringHelper("") //
-            .add("containerCount", containerCount()) //
-            .add("objectCount", objectCount()) //
-            .add("bytesUsed", bytesUsed()) //
-            .add("metadata", metadata());
+      return toStringHelper("")
+            .add("containerCount", getContainerCount())
+            .add("objectCount", getObjectCount())
+            .add("bytesUsed", getBytesUsed())
+            .add("metadata", getMetadata());
    }
 
    public static Builder builder() {
@@ -121,7 +138,9 @@ public class Account {
       protected Map<String, String> metadata = ImmutableMap.of();
 
       /**
-       * @see Account#containerCount()
+       * @param containerCount  the count of containers for this account.
+       * 
+       * @see Account#getContainerCount()
        */
       public Builder containerCount(long containerCount) {
          this.containerCount = containerCount;
@@ -129,7 +148,9 @@ public class Account {
       }
 
       /**
-       * @see Account#objectCount()
+       * @param objectCount  the count of objects for this account.
+       * 
+       * @see Account#getObjectCount()
        */
       public Builder objectCount(long objectCount) {
          this.objectCount = objectCount;
@@ -137,7 +158,9 @@ public class Account {
       }
 
       /**
-       * @see Account#bytesUsed()
+       * @param bytesUsed  the number of bytes used by this account.
+       * 
+       * @see Account#getBytesUsed()
        */
       public Builder bytesUsed(long bytesUsed) {
          this.bytesUsed = bytesUsed;
@@ -145,10 +168,13 @@ public class Account {
       }
 
       /**
-       * Will lower-case all metadata keys due to a swift implementation
+       * <h3>NOTE</h3>
+       * This method will lower-case all metadata keys due to a Swift implementation
        * decision.
        * 
-       * @see Account#metadata()
+       * @param metadata  the metadata for this account. 
+       * 
+       * @see Account#getMetadata()
        */
       public Builder metadata(Map<String, String> metadata) {
          ImmutableMap.Builder<String, String> builder = ImmutableMap.<String, String> builder();
@@ -164,10 +190,10 @@ public class Account {
       }
 
       public Builder fromContainer(Account from) {
-         return containerCount(from.containerCount())//
-               .objectCount(from.objectCount())//
-               .bytesUsed(from.bytesUsed()) //
-               .metadata(from.metadata());
+         return containerCount(from.getContainerCount())
+               .objectCount(from.getObjectCount())
+               .bytesUsed(from.getBytesUsed())
+               .metadata(from.getMetadata());
       }
    }
 }

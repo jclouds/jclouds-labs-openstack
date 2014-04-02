@@ -39,10 +39,11 @@ import com.google.common.collect.ImmutableSet;
 import com.google.inject.Module;
 
 /**
- * Implementation of {@link ApiMetadata} for Swift 1.0 API
+ * Implementation of {@link ApiMetadata} for the Swift API.
  * 
  * @author Adrian Cole
  * @author Zack Shoylev
+ * @author Jeremy Daggett
  */
 public class SwiftApiMetadata extends BaseHttpApiMetadata<SwiftApi> {
    
@@ -74,8 +75,8 @@ public class SwiftApiMetadata extends BaseHttpApiMetadata<SwiftApi> {
          .identityName("${tenantName}:${userName} or ${userName}, if your keystone supports a default tenant")
          .credentialName("${password}")
          .documentation(URI.create("http://docs.openstack.org/api/openstack-object-storage/1.0/content/ch_object-storage-dev-overview.html"))
-         .version("1.0")
-         .endpointName("KeyStone base url ending in /v2.0/")
+         .version("1")
+         .endpointName("Keystone base url ending in /v2.0/")
          .defaultEndpoint("http://localhost:5000/v2.0/")
          .defaultProperties(SwiftApiMetadata.defaultProperties())
          .view(typeToken(RegionScopedBlobStoreContext.class))
