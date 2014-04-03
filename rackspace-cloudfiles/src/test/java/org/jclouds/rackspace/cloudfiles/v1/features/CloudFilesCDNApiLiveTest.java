@@ -163,7 +163,7 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
       }
    }
 
-   private static final void assertCDNContainerNotNull(CDNContainer container) {
+   private static void assertCDNContainerNotNull(CDNContainer container) {
       assertNotNull(container);
       assertNotNull(container.getName());
       assertNotNull(container.getTtl());

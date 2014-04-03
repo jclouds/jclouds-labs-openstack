@@ -22,8 +22,6 @@ import static org.jclouds.openstack.swift.v1.reference.SwiftHeaders.CONTAINER_VE
 import java.util.Map;
 
 import org.jclouds.openstack.swift.v1.binders.BindMetadataToHeaders;
-import org.jclouds.openstack.swift.v1.domain.Container;
-import org.jclouds.openstack.swift.v1.features.ContainerApi;
 
 /**
  * Options for creating a {@link Container}. 
