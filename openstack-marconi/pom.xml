@@ -22,13 +22,13 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.7.2-SNAPSHOT</version>
+    <version>1.7.2</version>
   </parent>
 
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-marconi</artifactId>
-  <version>1.7.2-SNAPSHOT</version>
+  <version>1.7.2</version>
   <name>jclouds openstack-marconi api</name>
   <description>jclouds components to access an implementation of OpenStack Marconi</description>
   <packaging>bundle</packaging>
@@ -62,31 +62,31 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.7.2-SNAPSHOT</version>
+      <version>1.7.2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-okhttp</artifactId>
-      <version>1.7.2-SNAPSHOT</version>
+      <version>1.7.2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.7.2-SNAPSHOT</version>
+      <version>1.7.2</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.7.2-SNAPSHOT</version>
+      <version>1.7.2</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>1.7.2-SNAPSHOT</version>
+      <version>1.7.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -135,4 +135,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.7.2-rc1</tag>
+  </scm>
 </project>
