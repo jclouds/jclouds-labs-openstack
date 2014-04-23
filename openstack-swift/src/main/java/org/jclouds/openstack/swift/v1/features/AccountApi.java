@@ -40,7 +40,7 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.ResponseParser;
 
 /**
- * Provides access to the Swift Account API features.
+ * Provides access to the OpenStack Object Storage (Swift) Account API features.
  * 
  * <p/>
  * Account metadata prefixed with {@code X-Account-Meta-} will be converted
