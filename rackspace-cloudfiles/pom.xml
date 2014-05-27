@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-cloudfiles</artifactId>
-  <version>1.7.3-SNAPSHOT</version>
+  <version>1.7.3</version>
   <name>jclouds rackspace-cloudfiles api</name>
   <description>jclouds components to access Rackspace Cloud Files</description>
   <packaging>bundle</packaging>
@@ -167,4 +167,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.7.3-rc1</tag>
+  </scm>
 </project>

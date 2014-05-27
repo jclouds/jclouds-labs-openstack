@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-marconi</artifactId>
-  <version>1.7.3-SNAPSHOT</version>
+  <version>1.7.3</version>
   <name>jclouds openstack-marconi api</name>
   <description>jclouds components to access an implementation of OpenStack Marconi</description>
   <packaging>bundle</packaging>
@@ -135,4 +135,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.7.3-rc1</tag>
+  </scm>
 </project>
