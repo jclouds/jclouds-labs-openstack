@@ -22,13 +22,13 @@
   <parent>
     <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-project</artifactId>
-    <version>1.7.3</version>
+    <version>1.7.4-SNAPSHOT</version>
   </parent>
 
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-cloudfiles</artifactId>
-  <version>1.7.3</version>
+  <version>1.7.4-SNAPSHOT</version>
   <name>jclouds rackspace-cloudfiles api</name>
   <description>jclouds components to access Rackspace Cloud Files</description>
   <packaging>bundle</packaging>
@@ -73,36 +73,36 @@
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>openstack-keystone</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>rackspace-cloudidentity</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-blobstore</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
@@ -116,7 +116,7 @@
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-slf4j</artifactId>
-      <version>1.7.3</version>
+      <version>1.7.4-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -167,8 +167,4 @@
       </build>
     </profile>
   </profiles>
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.7.3-rc1</tag>
-  </scm>
 </project>
