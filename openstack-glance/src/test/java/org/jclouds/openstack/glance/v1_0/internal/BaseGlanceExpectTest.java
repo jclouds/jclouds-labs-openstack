@@ -31,8 +31,8 @@ public class BaseGlanceExpectTest<T> extends BaseRestApiExpectTest<T> {
    protected HttpRequest keystoneAuthWithAccessKeyAndSecretKey;
    protected String authToken;
    protected HttpResponse responseWithKeystoneAccess;
-   protected HttpRequest extensionsOfGlanceRequest;
-   protected HttpResponse extensionsOfGlanceResponse;
+   protected HttpRequest versionNegotiationRequest;
+   protected HttpResponse versionNegotiationResponse;
    protected HttpResponse unmatchedExtensionsOfGlanceResponse;
 
    public BaseGlanceExpectTest() {
@@ -41,7 +41,7 @@ public class BaseGlanceExpectTest<T> extends BaseRestApiExpectTest<T> {
             credential);
       keystoneAuthWithAccessKeyAndSecretKey = KeystoneFixture.INSTANCE.initialAuthWithAccessKeyAndSecretKeyAndTenantName(identity,
             credential);
-      
+
       authToken = KeystoneFixture.INSTANCE.getAuthToken();
       responseWithKeystoneAccess = KeystoneFixture.INSTANCE.responseWithAccess();
       // now, createContext arg will need tenant prefix
