@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.provider -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-cloudfiles-uk</artifactId>
-  <version>1.8.0</version>
+  <version>1.8.1-SNAPSHOT</version>
   <name>jclouds Rackspace Cloud Files UK provider</name>
   <description>OpenStack Object Storage implementation targeted to Rackspace Cloud Files UK</description>
   <packaging>bundle</packaging>
@@ -172,9 +172,4 @@
       </build>
     </profile>
   </profiles>
-
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.8.0-rc1</tag>
-  </scm>
 </project>
