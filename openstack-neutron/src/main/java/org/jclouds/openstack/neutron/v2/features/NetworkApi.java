@@ -1,26 +1,32 @@
-/**
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.features;
 
-import com.google.common.annotations.Beta;
-import com.google.common.collect.FluentIterable;
-import com.google.common.collect.ImmutableList;
+import javax.inject.Named;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import org.jclouds.Fallbacks;
 import org.jclouds.Fallbacks.EmptyPagedIterableOnNotFoundOr404;
 import org.jclouds.collect.PagedIterable;
@@ -39,19 +45,12 @@ import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.Transform;
 import org.jclouds.rest.annotations.WrapWith;
 
-import javax.inject.Named;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import com.google.common.annotations.Beta;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableList;
 
 /**
- * Provides synchronous access to Network operations on the openstack Neutron API.
+ * Provides access to Network operations for the OpenStack Networking (Neutron) v2 API.
  * <p/>
  * Each tenant can define one or more networks. A network is a virtual isolated layer-2 broadcast domain reserved to the
  * tenant. A tenant can create several ports for a network, and plug virtual interfaces into these ports.
@@ -60,7 +59,7 @@ import javax.ws.rs.core.MediaType;
  *      "http://docs.openstack.org/api/openstack-network/2.0/content/Networks.html">api doc</a>
  */
 @Beta
-@Path("/v2.0/networks")
+@Path("/networks")
 @RequestFilters(AuthenticateRequest.class)
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -110,7 +109,7 @@ public interface NetworkApi {
    @Named("network:create")
    @POST
    @SelectJson("network")
-   Network create(@WrapWith("network") Network.CreateOptions network);
+   Network create(@WrapWith("network") Network.CreateNetwork network);
 
    /**
     * Create multiple networks
@@ -121,7 +120,7 @@ public interface NetworkApi {
    @Named("network:createBulk")
    @POST
    @SelectJson("networks")
-   FluentIterable<Network> createBulk(@WrapWith("networks") ImmutableList<Network.CreateOptions> networks);
+   FluentIterable<Network> createBulk(@WrapWith("networks") ImmutableList<Network.CreateNetwork> networks);
 
    /**
     * Update a network
@@ -136,7 +135,7 @@ public interface NetworkApi {
    @SelectJson("network")
    @Fallback(Fallbacks.NullOnNotFoundOr404.class)
    @Nullable
-   Network update(@PathParam("id") String id, @WrapWith("network") Network.UpdateOptions network);
+   Network update(@PathParam("id") String id, @WrapWith("network") Network.UpdateNetwork network);
 
    /**
     * Deletes the specified network

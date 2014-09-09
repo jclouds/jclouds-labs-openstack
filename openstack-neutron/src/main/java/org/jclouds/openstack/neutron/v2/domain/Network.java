@@ -1,32 +1,31 @@
 /*
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.domain;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSet;
-import org.jclouds.javax.annotation.Nullable;
+import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.beans.ConstructorProperties;
 
 import javax.inject.Named;
-import java.beans.ConstructorProperties;
-import java.util.Set;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
 
 /**
  * A Neutron network
@@ -369,18 +368,18 @@ public class Network {
    /**
     * @return the Builder for creating a new Router
     */
-   public static CreateBuilder createOptions(String name) {
+   public static CreateBuilder createBuilder(String name) {
       return new CreateBuilder(name);
    }
 
    /**
     * @return the Builder for updating a Router
     */
-   public static UpdateBuilder updateOptions() {
+   public static UpdateBuilder updateBuilder() {
       return new UpdateBuilder();
    }
 
-   private static abstract class Builder<ParameterizedBuilderType> {
+   private abstract static class Builder<ParameterizedBuilderType> {
       protected Network network;
 
       /**
@@ -587,8 +586,8 @@ public class Network {
       /**
        * @return a CreateOptions constructed with this Builder.
        */
-      public CreateOptions build() {
-         return new CreateOptions(network);
+      public CreateNetwork build() {
+         return new CreateNetwork(network);
       }
 
       protected CreateBuilder self() {
@@ -609,8 +608,8 @@ public class Network {
       /**
        * @return a UpdateOptions constructed with this Builder.
        */
-      public UpdateOptions build() {
-         return new UpdateOptions(network);
+      public UpdateNetwork build() {
+         return new UpdateNetwork(network);
       }
 
       protected UpdateBuilder self() {
@@ -622,11 +621,11 @@ public class Network {
     * Create and Update options - extend the domain class, passed to API update and create calls.
     * Essentially the same as the domain class. Ensure validation and safe typing.
     */
-   public static class CreateOptions extends Network {
+   public static class CreateNetwork extends Network {
       /**
        * Copy constructor
        */
-      private CreateOptions(Network network) {
+      private CreateNetwork(Network network) {
          super(network);
          checkNotNull(network.name, "name should not be null");
       }
@@ -636,11 +635,11 @@ public class Network {
     * Create and Update options - extend the domain class, passed to API update and create calls.
     * Essentially the same as the domain class. Ensure validation and safe typing.
     */
-   public static class UpdateOptions extends Network  {
+   public static class UpdateNetwork extends Network  {
       /**
        * Copy constructor
        */
-      private UpdateOptions(Network network) {
+      private UpdateNetwork(Network network) {
          super(network);
       }
    }

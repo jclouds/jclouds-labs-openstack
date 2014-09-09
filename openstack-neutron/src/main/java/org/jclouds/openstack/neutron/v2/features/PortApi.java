@@ -1,20 +1,18 @@
-/**
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.features;
 
@@ -50,7 +48,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Provides synchronous access to Port operations on the openstack Neutron API.
+ * Provides access to Port operations for the OpenStack Networking (Neutron) v2 API.
  * <p/>
  * A port represents a virtual switch port on a logical network switch where all the interfaces attached to a given network are connected.
  * <p/>
@@ -59,7 +57,7 @@ import java.util.List;
  *      "http://docs.openstack.org/api/openstack-network/2.0/content/Ports.html">api doc</a>
  */
 @Beta
-@Path("/v2.0/ports")
+@Path("/ports")
 @RequestFilters(AuthenticateRequest.class)
 @Consumes(MediaType.APPLICATION_JSON)
 public interface PortApi {
@@ -109,7 +107,7 @@ public interface PortApi {
    @Named("port:create")
    @POST
    @SelectJson("port")
-   Port create(@WrapWith("port") Port.CreateOptions port);
+   Port create(@WrapWith("port") Port.CreatePort port);
 
    /**
     * Create multiple ports
@@ -120,7 +118,7 @@ public interface PortApi {
    @Named("port:createBulk")
    @POST
    @SelectJson("ports")
-   FluentIterable<Port> createBulk(@WrapWith("ports") List<Port.CreateOptions> ports);
+   FluentIterable<Port> createBulk(@WrapWith("ports") List<Port.CreatePort> ports);
 
    /**
     * Update a port
@@ -134,7 +132,7 @@ public interface PortApi {
    @Path("/{id}")
    @SelectJson("port")
    @Fallback(Fallbacks.NullOnNotFoundOr404.class)
-   Port update(@PathParam("id") String id, @WrapWith("port") Port.UpdateOptions port);
+   Port update(@PathParam("id") String id, @WrapWith("port") Port.UpdatePort port);
 
    /**
     * Delete a port

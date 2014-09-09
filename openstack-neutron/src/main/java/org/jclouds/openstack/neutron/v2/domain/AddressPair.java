@@ -1,29 +1,30 @@
 /*
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.domain;
 
-import com.google.common.base.Objects;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-import javax.inject.Named;
 import java.beans.ConstructorProperties;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import javax.inject.Named;
+
+import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.base.Objects;
 
 /**
  * Contains a mapping between a MAC address and an IP address.
@@ -59,6 +60,7 @@ public class AddressPair  {
    /**
     * @return the macAddress of the AddressPair
     */
+   @Nullable
    public String getMacAddress() {
       return macAddress;
    }
@@ -66,6 +68,7 @@ public class AddressPair  {
    /**
     * @return the ipAddress of the AddressPair
     */
+   @Nullable
    public String getIpAddress() {
       return ipAddress;
    }
@@ -99,17 +102,8 @@ public class AddressPair  {
     * In this case, both parameters are required.
     * @return the Builder for AddressPair
     */
-   public static Builder createOptions(String macAddress, String ipAddress) {
+   public static Builder builder(String macAddress, String ipAddress) {
       return new Builder(macAddress, ipAddress);
-   }
-
-   /**
-    * Returns a builder, but requires the user to specify any parameters required when updating a resource.
-    * In this case, there are none.
-    * @return the Builder for AddressPair
-    */
-   public static Builder updateOptions() {
-      return new Builder();
    }
 
    /**

@@ -17,10 +17,10 @@
 
 package org.jclouds.openstack.neutron.v2_0.domain;
 
+import java.beans.ConstructorProperties;
+
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
-
-import java.beans.ConstructorProperties;
 
 /**
  * A Neutron Subnet Host Route

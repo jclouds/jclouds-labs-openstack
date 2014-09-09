@@ -1,33 +1,32 @@
 /*
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.domain;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSet;
-import org.jclouds.javax.annotation.Nullable;
+import static com.google.common.base.Preconditions.checkNotNull;
 
-import javax.inject.Named;
 import java.beans.ConstructorProperties;
 import java.util.Collection;
-import java.util.Set;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import javax.inject.Named;
+
+import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
 
 /**
  * A Neutron subnet
@@ -268,18 +267,18 @@ public class Subnet {
    /**
     * @return the Builder for creating a new Router
     */
-   public static CreateBuilder createOptions(String networkId, String cidr) {
+   public static CreateBuilder createBuilder(String networkId, String cidr) {
       return new CreateBuilder(networkId, cidr);
    }
 
    /**
     * @return the Builder for updating a Router
     */
-   public static UpdateBuilder updateOptions() {
+   public static UpdateBuilder updateBuilder() {
       return new UpdateBuilder();
    }
 
-   private static abstract class Builder<ParameterizedBuilderType> {
+   private abstract static class Builder<ParameterizedBuilderType> {
       protected Subnet subnet;
 
       /**
@@ -406,8 +405,8 @@ public class Subnet {
       /**
        * @return a CreateOptions constructed with this Builder.
        */
-      public CreateOptions build() {
-         return new CreateOptions(subnet);
+      public CreateSubnet build() {
+         return new CreateSubnet(subnet);
       }
 
       protected CreateBuilder self() {
@@ -428,8 +427,8 @@ public class Subnet {
       /**
        * @return a UpdateOptions constructed with this Builder.
        */
-      public UpdateOptions build() {
-         return new UpdateOptions(subnet);
+      public UpdateSubnet build() {
+         return new UpdateSubnet(subnet);
       }
 
       protected UpdateBuilder self() {
@@ -441,11 +440,11 @@ public class Subnet {
     * Create and Update options - extend the domain class, passed to API update and create calls.
     * Essentially the same as the domain class. Ensure validation and safe typing.
     */
-   public static class CreateOptions extends Subnet {
+   public static class CreateSubnet extends Subnet {
       /**
        * Copy constructor
        */
-      private CreateOptions(Subnet subnet) {
+      private CreateSubnet(Subnet subnet) {
          super(subnet);
          checkNotNull(subnet.networkId, "networkId should not be null");
          checkNotNull(subnet.cidr, "cidr should not be null");
@@ -456,11 +455,11 @@ public class Subnet {
     * Create and Update options - extend the domain class, passed to API update and create calls.
     * Essentially the same as the domain class. Ensure validation and safe typing.
     */
-   public static class UpdateOptions extends Subnet {
+   public static class UpdateSubnet extends Subnet {
       /**
        * Copy constructor
        */
-      private UpdateOptions(Subnet subnet) {
+      private UpdateSubnet(Subnet subnet) {
          super(subnet);
       }
    }

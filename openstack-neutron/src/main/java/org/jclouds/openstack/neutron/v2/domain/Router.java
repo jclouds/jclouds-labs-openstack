@@ -1,28 +1,28 @@
-/**
- * Licensed to jclouds, Inc. (jclouds) under one or more
- * contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  jclouds licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.jclouds.openstack.neutron.v2.domain;
 
-import com.google.common.base.Objects;
-import org.jclouds.javax.annotation.Nullable;
+import java.beans.ConstructorProperties;
 
 import javax.inject.Named;
-import java.beans.ConstructorProperties;
+
+import org.jclouds.javax.annotation.Nullable;
+
+import com.google.common.base.Objects;
 
 /**
  * A Neutron Router
@@ -126,14 +126,14 @@ public class Router {
    /**
     * @return the Builder for creating a new Router
     */
-   public static CreateBuilder createOptions() {
+   public static CreateBuilder createBuilder() {
       return new CreateBuilder();
    }
 
    /**
     * @return the Builder for updating a Router
     */
-   public static UpdateBuilder updateOptions() {
+   public static UpdateBuilder updateBuilder() {
       return new UpdateBuilder();
    }
 
@@ -171,7 +171,7 @@ public class Router {
             .toString();
    }
 
-   private static abstract class Builder<ParameterizedBuilderType> {
+   private abstract static class Builder<ParameterizedBuilderType> {
       protected Router router;
 
       /**
@@ -238,8 +238,8 @@ public class Router {
       /**
        * @return a CreateOptions constructed with this Builder.
        */
-      public CreateOptions build() {
-         return new CreateOptions(router);
+      public CreateRouter build() {
+         return new CreateRouter(router);
       }
 
       protected CreateBuilder self() {
@@ -257,8 +257,8 @@ public class Router {
       /**
        * @return a UpdateOptions constructed with this Builder.
        */
-      public UpdateOptions build() {
-         return new UpdateOptions(router);
+      public UpdateRouter build() {
+         return new UpdateRouter(router);
       }
 
       protected UpdateBuilder self() {
@@ -266,19 +266,19 @@ public class Router {
       }
    }
 
-   public static class CreateOptions extends Router{
+   public static class CreateRouter extends Router{
       /**
        * Copy constructor
        */
-      private CreateOptions(Router router) {
+      private CreateRouter(Router router) {
          super(router);
       }
    }
-   public static class UpdateOptions extends Router{
+   public static class UpdateRouter extends Router{
       /**
        * Copy constructor
        */
-      private UpdateOptions(Router router) {
+      private UpdateRouter(Router router) {
          super(router);
       }
    }
