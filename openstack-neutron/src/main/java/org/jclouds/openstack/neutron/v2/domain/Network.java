@@ -584,7 +584,7 @@ public class Network {
       }
 
       /**
-       * @return a CreateOptions constructed with this Builder.
+       * @return a CreateNetwork constructed with this Builder.
        */
       public CreateNetwork build() {
          return new CreateNetwork(network);
@@ -606,7 +606,7 @@ public class Network {
       }
 
       /**
-       * @return a UpdateOptions constructed with this Builder.
+       * @return a UpdateNetwork constructed with this Builder.
        */
       public UpdateNetwork build() {
          return new UpdateNetwork(network);

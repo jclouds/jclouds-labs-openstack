@@ -335,7 +335,7 @@ public class Rule {
    }
 
    /**
-    * This is used to build a CreateOptions object.
+    * This is used to build a CreateBuilder object.
     */
    public static class CreateBuilder extends Builder<CreateBuilder> {
       /**
@@ -347,7 +347,7 @@ public class Rule {
       }
 
       /**
-       * @return a CreateOptions constructed with this Builder.
+       * @return a CreateRule constructed with this Builder.
        */
       public CreateRule build() {
          return new CreateRule(rule);
