@@ -181,7 +181,7 @@ public class Network {
     * @return the adminStateUp of the Network
     */
    @Nullable
-   public Boolean isAdminStateUp() {
+   public Boolean getAdminStateUp() {
       return adminStateUp;
    }
 
@@ -192,7 +192,7 @@ public class Network {
     * @return true if the network resource can be accessed by any tenant or not, false if not
     */
    @Nullable
-   public Boolean isShared() {
+   public Boolean getShared() {
       return shared;
    }
 
@@ -233,7 +233,7 @@ public class Network {
     * @return the external of the Network
     */
    @Nullable
-   public Boolean isExternal() {
+   public Boolean getExternal() {
       return external;
    }
 
@@ -241,7 +241,7 @@ public class Network {
     * @return the portSecurity of the Network
     */
    @Nullable
-   public Boolean isPortSecurity() {
+   public Boolean getPortSecurity() {
       return portSecurity;
    }
 
