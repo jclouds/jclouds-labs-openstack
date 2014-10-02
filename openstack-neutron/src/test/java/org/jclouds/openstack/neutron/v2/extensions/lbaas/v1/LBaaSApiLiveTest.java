@@ -84,8 +84,8 @@ public class LBaaSApiLiveTest extends BaseNeutronApiLiveTest {
 
    @BeforeClass
    public void createSubnets() {
-      networks = new HashMap<>();
-      subnets = new HashMap<>();
+      networks = new HashMap<String, Network>();
+      subnets = new HashMap<String, Subnet>();
       for (String region : api.getConfiguredRegions()) {
          Optional<LBaaSApi> lbaasApiExtension = api.getLBaaSApi(region);
          if (!lbaasApiExtension.isPresent()) {
