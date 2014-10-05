@@ -69,7 +69,7 @@ public class RegionScopedBlobStoreContextLiveTest extends BaseBlobStoreIntegrati
    public void tryList() throws InterruptedException, ExecutionException {
       RegionScopedBlobStoreContext ctx = RegionScopedBlobStoreContext.class.cast(view);
       for (String regionId : ctx.getConfiguredRegions()) {
-         assertEquals(ctx.getAsyncBlobStore(regionId).list().get(), ctx.getBlobStore(regionId).list());
+         ctx.getBlobStore(regionId).list();
       }
    }
 
