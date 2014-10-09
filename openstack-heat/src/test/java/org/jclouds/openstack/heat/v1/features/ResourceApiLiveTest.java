@@ -30,7 +30,7 @@ import org.testng.annotations.Test;
 public class ResourceApiLiveTest extends BaseHeatApiLiveTest {
 
    public void testListTypes() {
-      for (String region : filterRegions(api.getConfiguredRegions())) {
+      for (String region : filterZones(api.getConfiguredRegions())) {
          ResourceApi resourceApi = api.getResourceApi(region);
 
          List<String> resourceTypes = resourceApi.listTypes();
