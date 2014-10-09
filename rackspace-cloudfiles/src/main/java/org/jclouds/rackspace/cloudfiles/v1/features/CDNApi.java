@@ -64,7 +64,7 @@ import com.google.common.collect.FluentIterable;
  * noted in the service catalog for Cloud Files during Authentication and set the
  * <code>X-CDN-Enabled</code> header to <code>true</code>.
  *
- * @see {@link CloudFilesApi#getCDNApiForRegion(String)}
+ * @see {@link org.jclouds.rackspace.cloudfiles.v1.CloudFilesApi#getCDNApi(String)}
  */
 @Beta
 @RequestFilters(AuthenticateRequest.class)

@@ -54,9 +54,9 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
 
    public void testEnable() throws Exception {
       for (String regionId : regions) {
-         assertNotNull(api.getCDNApiForRegion(regionId).enable(name));
-         
-         CDNContainer container = api.getCDNApiForRegion(regionId).get(name);
+         assertNotNull(api.getCDNApi(regionId).enable(name));
+
+         CDNContainer container = api.getCDNApi(regionId).get(name);
          assertCDNContainerNotNull(container);
          assertTrue(container.isEnabled());
       }
@@ -64,9 +64,9 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
 
    public void testEnableWithTTL() throws Exception {
       for (String regionId : regions) {
-         assertNotNull(api.getCDNApiForRegion(regionId).enable(name, 777777));
+         assertNotNull(api.getCDNApi(regionId).enable(name, 777777));
 
-         CDNContainer container = api.getCDNApiForRegion(regionId).get(name);
+         CDNContainer container = api.getCDNApi(regionId).get(name);
          assertCDNContainerNotNull(container);
          assertTrue(container.isEnabled());
          assertTrue(container.getTtl() == 777777);
@@ -75,18 +75,18 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
 
    public void testDisable() throws Exception {
       for (String regionId : regions) {
-         assertTrue(api.getCDNApiForRegion(regionId).disable(name));
+         assertTrue(api.getCDNApi(regionId).disable(name));
 
-         CDNContainer container = api.getCDNApiForRegion(regionId).get(name);
+         CDNContainer container = api.getCDNApi(regionId).get(name);
          assertFalse(container.isEnabled());
       }
    }
 
    public void testList() throws Exception {
       for (String regionId : regions) {
-         List<CDNContainer> cdnResponse = api.getCDNApiForRegion(regionId).list().toList();
+         List<CDNContainer> cdnResponse = api.getCDNApi(regionId).list().toList();
          assertNotNull(cdnResponse);
-         
+
          for (CDNContainer cdnContainer : cdnResponse) {
             assertCDNContainerNotNull(cdnContainer);
             assertTrue(cdnContainer.isEnabled());
@@ -98,8 +98,8 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
       String lexicographicallyBeforeName = name.substring(0, name.length() - 1);
       for (String regionId : regions) {
          ListCDNContainerOptions options = new ListCDNContainerOptions().marker(lexicographicallyBeforeName);
-          
-         CDNContainer cdnContainer = api.getCDNApiForRegion(regionId).list(options).get(0);
+
+         CDNContainer cdnContainer = api.getCDNApi(regionId).list(options).get(0);
          assertCDNContainerNotNull(cdnContainer);
          assertTrue(cdnContainer.isEnabled());
       }
@@ -107,7 +107,7 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
 
    public void testGet() throws Exception {
       for (String regionId : regions) {
-         CDNContainer container = api.getCDNApiForRegion(regionId).get(name);
+         CDNContainer container = api.getCDNApi(regionId).get(name);
          assertCDNContainerNotNull(container);
          assertTrue(container.isEnabled());
       }
@@ -117,14 +117,14 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
       for (String regionId : regions) {
          String objectName = "testPurge";
          Payload payload = Payloads.newByteSourcePayload(ByteSource.wrap(new byte[] {1, 2, 3}));
-         ObjectApi objectApi = api.getObjectApiForRegionAndContainer(regionId, name);
-         
+         ObjectApi objectApi = api.getObjectApi(regionId, name);
+
          // create a new object
          objectApi.put(objectName, payload);
-         
-         CDNApi cdnApi = api.getCDNApiForRegion(regionId);
+
+         CDNApi cdnApi = api.getCDNApi(regionId);
          assertTrue(cdnApi.purgeObject(name, "testPurge", ImmutableList.<String>of()));
-         
+
          // delete the object
          objectApi.delete(objectName);
          assertNull(objectApi.get(objectName, GetOptions.NONE));
@@ -134,10 +134,10 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
    public void testUpdate() throws Exception {
       for (String regionId : regions) {
          // enable with a ttl
-         assertNotNull(api.getCDNApiForRegion(regionId).enable(name, 777777));
-         
+         assertNotNull(api.getCDNApi(regionId).enable(name, 777777));
+
          // now get the container
-         CDNContainer original = api.getCDNApiForRegion(regionId).get(name);
+         CDNContainer original = api.getCDNApi(regionId).get(name);
          assertTrue(original.isEnabled());
          assertCDNContainerNotNull(original);
 
@@ -147,13 +147,13 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
                                                 .logRetention(true)
                                                 .enabled(false);
          // update the container
-         assertTrue(api.getCDNApiForRegion(regionId).update(name, opts));
-         
+         assertTrue(api.getCDNApi(regionId).update(name, opts));
+
          // now get the updated container
-         CDNContainer updated = api.getCDNApiForRegion(regionId).get(name);
+         CDNContainer updated = api.getCDNApi(regionId).get(name);
          assertFalse(updated.isEnabled());
          assertCDNContainerNotNull(updated);
-         
+
          assertNotEquals(original.getTtl(), updated.getTtl());
          assertTrue(updated.isLogRetentionEnabled());
       }
@@ -174,7 +174,7 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
    public void setup() {
       super.setup();
       for (String regionId : regions) {
-         api.getContainerApiForRegion(regionId).create(name);
+         api.getContainerApi(regionId).create(name);
       }
    }
 
@@ -182,8 +182,8 @@ public class CloudFilesCDNApiLiveTest extends BaseCloudFilesApiLiveTest {
    @AfterClass(groups = "live")
    public void tearDown() {
       for (String regionId : regions) {
-         api.getCDNApiForRegion(regionId).disable(name);
-         api.getContainerApiForRegion(regionId).deleteIfEmpty(name);
+         api.getCDNApi(regionId).disable(name);
+         api.getContainerApi(regionId).deleteIfEmpty(name);
       }
       super.tearDown();
    }
