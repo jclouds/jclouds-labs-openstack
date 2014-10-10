@@ -28,7 +28,7 @@
   <!-- TODO: when out of labs, switch to org.jclouds.api -->
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>openstack-glance</artifactId>
-  <version>1.8.1</version>
+  <version>1.8.2-SNAPSHOT</version>
   <name>jclouds openstack-glance api</name>
   <description>jclouds components to access an implementation of OpenStack Glance</description>
   <packaging>bundle</packaging>
@@ -149,8 +149,4 @@
       </build>
     </profile>
   </profiles>
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.8.1-rc1</tag>
-  </scm>
 </project>

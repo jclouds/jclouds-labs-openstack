@@ -29,7 +29,7 @@
    
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-autoscale-uk</artifactId>
-  <version>1.8.1</version>
+  <version>1.8.2-SNAPSHOT</version>
   <name>jclouds Rackspace Auto Scale UK Provider</name>
   <description>jclouds components to access Rackspace Auto Scale UK</description>
   <packaging>bundle</packaging>
@@ -169,8 +169,4 @@
       </build>
     </profile>
   </profiles>
-
-  <scm>
-    <tag>jclouds-labs-openstack-1.8.1-rc1</tag>
-  </scm>
 </project>
