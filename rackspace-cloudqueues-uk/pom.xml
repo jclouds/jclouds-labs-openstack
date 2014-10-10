@@ -29,7 +29,7 @@
   
   <groupId>org.apache.jclouds.labs</groupId>
   <artifactId>rackspace-cloudqueues-uk</artifactId>
-  <version>1.8.1-SNAPSHOT</version>
+  <version>1.8.1</version>
   <name>jclouds Rackspace Cloud Queues UK provider</name>
   <description>OpenStack Marconi implementation targeted to Rackspace Cloud Queues UK</description>
   <packaging>bundle</packaging>
@@ -174,4 +174,8 @@
       </build>
     </profile>
   </profiles>
+
+  <scm>
+    <tag>jclouds-labs-openstack-1.8.1-rc1</tag>
+  </scm>
 </project>
