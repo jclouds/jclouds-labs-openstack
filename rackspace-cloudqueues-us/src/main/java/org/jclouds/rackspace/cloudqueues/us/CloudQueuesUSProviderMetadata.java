@@ -16,8 +16,15 @@
  */
 package org.jclouds.rackspace.cloudqueues.us;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.inject.Module;
+import static org.jclouds.location.reference.LocationConstants.ISO3166_CODES;
+import static org.jclouds.location.reference.LocationConstants.PROPERTY_ZONE;
+import static org.jclouds.location.reference.LocationConstants.PROPERTY_ZONES;
+import static org.jclouds.openstack.keystone.v2_0.config.KeystoneProperties.CREDENTIAL_TYPE;
+import static org.jclouds.openstack.keystone.v2_0.config.KeystoneProperties.SERVICE_TYPE;
+
+import java.net.URI;
+import java.util.Properties;
+
 import org.jclouds.openstack.keystone.v2_0.config.KeystoneAuthenticationModule.ZoneModule;
 import org.jclouds.openstack.marconi.v1.MarconiApiMetadata;
 import org.jclouds.openstack.marconi.v1.config.MarconiHttpApiModule;
@@ -29,18 +36,14 @@ import org.jclouds.rackspace.cloudidentity.v2_0.config.CloudIdentityAuthenticati
 import org.jclouds.rackspace.cloudidentity.v2_0.config.CloudIdentityAuthenticationModule;
 import org.jclouds.rackspace.cloudidentity.v2_0.config.CloudIdentityCredentialTypes;
 
-import java.net.URI;
-import java.util.Properties;
-
-import static org.jclouds.location.reference.LocationConstants.ISO3166_CODES;
-import static org.jclouds.location.reference.LocationConstants.PROPERTY_ZONE;
-import static org.jclouds.location.reference.LocationConstants.PROPERTY_ZONES;
-import static org.jclouds.openstack.keystone.v2_0.config.KeystoneProperties.CREDENTIAL_TYPE;
-import static org.jclouds.openstack.keystone.v2_0.config.KeystoneProperties.SERVICE_TYPE;
+import com.google.auto.service.AutoService;
+import com.google.common.collect.ImmutableSet;
+import com.google.inject.Module;
 
 /**
  * Implementation of Rackspace Cloud Queues.
  */
+@AutoService(ProviderMetadata.class)
 public class CloudQueuesUSProviderMetadata extends BaseProviderMetadata {
 
    public static Builder builder() {
