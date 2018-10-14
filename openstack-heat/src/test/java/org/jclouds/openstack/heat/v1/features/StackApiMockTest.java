@@ -21,7 +21,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -231,10 +230,6 @@ public class StackApiMockTest extends BaseHeatApiMockTest {
          HeatApi heatApi = api(server.getUrl("/").toString(), "openstack-heat", overrides);
          StackApi api = heatApi.getStackApi("RegionOne");
 
-         Map<String, String> parameters = new HashMap<String, String>();
-         parameters.put("key_name", "myKey");
-         parameters.put("image_id", "3b7be1fa-d381-4067-bb81-e835df630564");
-         parameters.put("instance_type", "SMALL_1");
          CreateStack createStack = CreateStack.builder().name(TEST_STACK_NAME).templateUrl("http://10.5.5.121/Installs/cPaaS/YAML/simple_stack.yaml").build();
          Stack stack = api.create(createStack);
 
